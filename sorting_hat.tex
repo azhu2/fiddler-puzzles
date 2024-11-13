@@ -2,6 +2,7 @@
 \usepackage[margin=0.75in]{geometry}
 \usepackage{hyperref}
 \usepackage{mathtools}
+\usepackage{indentfirst}
 
 \pagenumbering{gobble}
 \setlength{\parindent}{-0.5cm}
@@ -78,5 +79,36 @@ We can plug this into Excel (okay, Google Sheets) to get our results:\\
 \end{tabular}\\
 
 So our solution is $B_{10} = 74.9886\%$.
+
+\section*{Extra Credit}
+
+Define $W_m$ as the odds that Barry gets into $\mathcal{G}$ given that he wakes up at student $M$ getting sorted
+and $E_n$ as Barry's overall chances to get into $\mathcal{G}$ given he is $N^{th}$ in line.\\
+
+If Barry wakes up when student $M$ is being sorted, the problem is identical to the original prompt, except now we're starting from student $M$ instead of student $1$.
+So it follows that:
+\begin{equation*}
+    W_m = B_{n-m}
+\end{equation*}
+
+By the prompt, $M$ is $[1..N-1]$. So $W_m$ ranges from $B_{n-1}$ to $B_{n-(n-1)} = B_1$.\\
+
+Every value in $M$ has an equal chance to be chosen, so $E_n$ is simply the average of every value $(B_1..B_{n-1})$. Plug this back into Google Sheets and the table starts:\\
+
+\begin{tabular}{l | l | l | l }
+    Round   & $P_s$     & $B_s$     & $E_n$     \\ \hline
+    1       & 1.0000    & n/a       & n/a       \\
+    2       & 0.0000    & 0.0000    & 0.0000    \\
+    3       & 0.3333    & 1.0000    & 0.5000    \\
+    4       & 0.2222    & 0.6667    & 0.5556    \\
+    5       & 0.2593    & 0.7778    & 0.6111    \\
+    6       & 0.2469    & 0.7407    & 0.6370    \\
+    7       & 0.2510    & 0.7531    & 0.6564    \\
+    8       & 0.2497    & 0.7490    & 0.6696    \\
+    9       & 0.2501    & 0.7503    & 0.6797    \\
+    10      & 0.2500    & 0.7499    & 0.6875    \\
+\end{tabular}\\
+
+We continue a while until finally $E_n > p$ at $N = 4922$.
 
 \end{document}
