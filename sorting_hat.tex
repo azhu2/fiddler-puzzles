@@ -3,6 +3,7 @@
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{indentfirst}
+\usepackage{graphicx}
 
 \pagenumbering{gobble}
 \setlength{\parindent}{-0.5cm}
@@ -110,5 +111,16 @@ Every value in $M$ has an equal chance to be chosen, so $E_n$ is simply the aver
 \end{tabular}\\
 
 We continue a while until finally $E_n > p$ at $N = 4922$.
+
+\pagebreak
+\section*{Graphs}
+
+We can see that Barry's overall odds quickly approach $\rfrac{3}{4}$, which makes sense for earlier rounds to matter less and less.
+
+\includegraphics[height=10cm]{sorting_hat_01.png}
+
+We can also see just how long it takes the extra credit scenario to reach just the 10th iteration if only Barry had gotten a better night's sleep.
+
+\includegraphics[height=10cm]{sorting_hat_02.png}
 
 \end{document}
