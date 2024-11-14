@@ -53,16 +53,24 @@ So, if student $S$ is placed into $\mathcal{X}$, the chances of student $S+1$ be
 $\rfrac{1}{4} + \rfrac{1}{12} = \rfrac{1}{3}$.\\
 
 We know the odds of student $S$ being placed into $\mathcal{X}$ to be $1-P_s$, and we can disregard the $P_s$ case as impossible for student $S+1$ to be a $\mathcal{G}$, so that means that:
-\begin{equation*}
+\begin{equation}
     P_{s+1} = \rfrac{1}{3}(1 - P_s)
-\end{equation*}
+\end{equation}
 
 Let's fruther define $B_s$ as the chances that our protagonist Barry Plotter gets his choice, given that he is $S_{th}$ in line.
-Since Barry chooses $\mathcal{G}$, he will get his wish as long as student $S-1$ doesn't pick $\mathcal{G}$. So:
-\begin{equation*}
-    B_s = 1 - P_{s-1}
-\end{equation*}
+Since Barry chooses $\mathcal{G}$, he will get his wish as long as student $S-1$ doesn't pick $\mathcal{G}$. So
+$B_s = 1 - P_{s-1}$
+or, equivalently:
+\begin{equation}
+    B_{s+1} = 1 - P_s
+\end{equation}
 
+Compare this to equation 1 and we can see that $P_{s+1} = \rfrac{1}{3}B_{s+1}$ or, more simply:
+\begin{equation}
+    B_s = 3P_s
+\end{equation}
+
+\pagebreak
 We can plug this into Excel (okay, Google Sheets) to get our results:\\
 
 \begin{tabular}{l | l | l }
@@ -88,9 +96,9 @@ and $E_n$ as Barry's overall chances to get into $\mathcal{G}$ given he is $N^{t
 
 If Barry wakes up when student $M$ is being sorted, the problem is identical to the original prompt, except now we're starting from student $M$ instead of student $1$.
 So it follows that:
-\begin{equation*}
+\begin{equation}
     W_m = B_{n-m}
-\end{equation*}
+\end{equation}
 
 By the prompt, $M$ is $[1..N-1]$. So $W_m$ ranges from $B_{n-1}$ to $B_{n-(n-1)} = B_1$.\\
 
